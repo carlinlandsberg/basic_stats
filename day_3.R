@@ -243,7 +243,7 @@ compare_means(length ~ sample, data = random, method = "t.test", var.equal = TRU
   # because p < 0.05, we can reject the null hypothesis and accept the alternative hypothesis
 
 # In conclusion, length of males was found to be significantly greater 
-# than the length of females 
+# than the length of females (according to p-value in compare_means) 
 
 # BUT t.test and compare_means give two different p-values...
   # t.test: p = 1, t = -14.556, df = 198 (shows no significant difference?)
