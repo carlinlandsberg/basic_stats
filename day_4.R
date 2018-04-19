@@ -11,7 +11,6 @@
 # Load libraries ----------------------------------------------------------
 
 library(tidyverse)
-library(ggplot2)
 
 # Revisiting t-tests  -----------------------------------------------------
 
@@ -101,7 +100,7 @@ chicks_0_21 <- ChickWeight %>%
   filter(Time %in% c(0,2,21))
 
 # Visualise the data
-ggplot(data = chicks_0_21, aes(x = Time, y = weight)) +
+ggplot(data = chicks_0_21, aes(x = as.factor(Time), y = weight)) +
   geom_boxplot(notch = T, aes(fill = as.factor(Time)))
 
 # run an ANOVA
@@ -169,20 +168,4 @@ kruskal.test(weight ~ Diet, data = chicks_0_21)
 # load this for non-parametric post-hoc test
 library(pgirmess)
 kruskalmc(weight ~ Diet, data = chicks_0_21)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
