@@ -247,5 +247,7 @@ compare_means(length ~ sample, data = random, method = "t.test", var.equal = TRU
 
 # BUT t.test and compare_means give two different p-values...
   # t.test: p = 1, t = -14.556, df = 198 (shows no significant difference?)
-
+# RWS: Ja... This is curious... I think it is because compare_means() sees that 
+  # you want a "greater" than test and so decides for you if either of the groups is greater
+  # The base t.test() function does not do this.
 
