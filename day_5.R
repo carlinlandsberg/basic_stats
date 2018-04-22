@@ -285,5 +285,5 @@ melted_eck <- melt(ecklonia_pearson)
 
 ggplot(melted_eck, aes(x=Var1, y=Var2, fill=value)) + 
   geom_tile() +
-  scale_fill_gradient(low = "white", high = "steelblue")
+  scale_fill_gradient(low = "white", high = "dodgerblue") 
 
