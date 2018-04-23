@@ -8,7 +8,7 @@
 # Load libraries ----------------------------------------------------------
 
 library(tidyverse)
-library(Rmisc)
+# library(Rmisc) # Unfortunately this overrides many dplyr functions
 library(ggpubr)
 library(corrplot)
 
@@ -36,7 +36,7 @@ snakes_summary <- snakes %>%
 # Test a hypothesis -------------------------------------------------------
 
 # First calculate SE and CI
-snakes.summary2 <- summarySE(data = snakes, 
+snakes.summary2 <- Rmisc::summarySE(data = snakes, 
                              measurevar = "openings", # variance of openings
                              groupvars = c("day")) # group by day
 
@@ -110,7 +110,7 @@ moths <- read_csv("moth_traps.csv") %>%
 # H0: there is NO difference in the count of moths at different locations
 # H1: here IS adifference in the count of moths at different locations
 
-moths.summary2 <- summarySE(data = moths, 
+moths.summary2 <- Rmisc::summarySE(data = moths, 
                              measurevar = "count", 
                              groupvars = c("Location"))
 
@@ -169,6 +169,7 @@ plot3 <- ggplot(data = moths, aes(x = Location, y = count)) +
   # geom_jitter(width = 0.05, shape = 21, aes(fill = trap))
 
 finalplot <- ggarrange(plot1, plot2, plot3, nrow = 2, ncol = 2, labels = "AUTO")
+finalplot
 
 # Regressions -------------------------------------------------------------
 
