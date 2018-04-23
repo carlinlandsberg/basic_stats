@@ -285,5 +285,6 @@ melted_eck <- melt(ecklonia_pearson)
 
 ggplot(melted_eck, aes(x=Var1, y=Var2, fill=value)) + 
   geom_tile() +
-  scale_fill_gradient(low = "white", high = "dodgerblue") 
-
+  scale_fill_gradient(low = "yellow", high = "indianred", name = "Pearson correlation") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 12, hjust = 1))
